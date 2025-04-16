@@ -1,4 +1,4 @@
-# Copyright (C) 2025 bones <bones-dev@protonmail.com>
+# Copyright (C) 2025 bones <bones-dev99@proton.me>
 #
 # File Organization Toolkit is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published by

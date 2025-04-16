@@ -18,7 +18,7 @@ def collect_files(dir, base_dir):
 		if file.is_dir():
 			files.extend(collect_files(file.path, base_dir))
 		elif file.is_file() and not file.name.startswith('.') and os.path.dirname(file.path) != base_dir and not file == os.path.basename(__file__):
-			files.append(file.name)
+			files.append(file)
 	return files
 
 def rename_file(file):
@@ -32,7 +32,7 @@ def rename_file(file):
 def move_files(files, dir, file_ct):
 	move_ct = 0
 	for file in files:
-		dst = os.path.join(dir, file)
+		dst = os.path.join(dir, file.name)
 		if os.path.exists(dst):
 			dst = rename_file(dst)
 		os.rename(file.path, dst)
