@@ -25,6 +25,7 @@ def get_correct_files(files, start, prefix, padding, suffix):
 	bases = []
 	startl = len(prefix)
 	endl = len(suffix)
+	max_denominator = len(files) + (start - 1)
 
 	for index, file in enumerate(files):
 		base, _ = os.path.splitext(file)
@@ -32,7 +33,7 @@ def get_correct_files(files, start, prefix, padding, suffix):
 			continue
 		if base.startswith(prefix) and base.endswith(suffix):
 			middle = base[startl:-endl] if suffix else base[startl:]
-			if middle.isdigit() and len(middle) == padding and base not in already_named:
+			if middle.isdigit() and len(middle) == padding and int(middle) <= max_denominator and base not in already_named:
 				already_named.append(file)
 				bases.append(base)
 	return already_named, bases
